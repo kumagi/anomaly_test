@@ -4,6 +4,7 @@ import jubatus
 from jubatus.common import Datum
 import json
 import numpy as np
+import pylab as pl
 from sklearn import metrics
 import matplotlib.pyplot as plt
 
@@ -20,6 +21,17 @@ for i in range(len(scores)):
         scores[i] = 10000000
 
 fpr, tpr, thresholds = metrics.roc_curve(labels, scores, pos_label=1)
-auc = metrics.auc(fpr, tpr)
+roc_auc = metrics.auc(fpr, tpr)
 
 plt.figure()
+pl.clf()
+pl.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
+pl.plot([0, 1], [0, 1], 'k--')
+pl.xlim([0.0, 1.0])
+pl.ylim([0.0, 1.0])
+pl.xlabel('False Positive Rate')
+pl.ylabel('True Positive Rate')
+pl.title('Receiver Operating Characteristic')
+pl.legend(loc="lower right")
+pl.savefig("roc.png")
+pl.show()

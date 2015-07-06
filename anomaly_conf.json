@@ -1,20 +1,25 @@
 
 {
-  "converter" : {
-    "string_rules" : [
-      { "key" : "*", "type" : "str", "sample_weight" : "bin", "global_weight" : "bin" }
-    ],
-    "num_rules" : [
-      { "key" : "*", "type" : "num" }
-    ]
-  },
-  "parameter" : {
-    "nearest_neighbor_num" : 5,
-    "reverse_nearest_neighbor_num" : 5,
-    "method" : "euclid_lsh",
+    "converter" : {
+        "string_rules" : [
+            {
+                "key" : "*",
+                "type" : "str",
+                "sample_weight" : "bin",
+                "global_weight" : "bin"
+            }
+        ],
+        "num_rules" : [
+            { "key" : "*", "type" : "num" }
+        ]
+    },
     "parameter" : {
-      "hash_num" : 512
-    }
-  },
-  "method" : "light_lof"
+        "nearest_neighbor_num" : 3,
+        "reverse_nearest_neighbor_num" : 3,
+        "method" : "euclid_lsh",
+        "parameter" : {
+            "hash_num" : 512
+        }
+    },
+    "method" : "light_lof"
 }
