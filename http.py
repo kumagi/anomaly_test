@@ -2,7 +2,6 @@ import SimpleHTTPServer
 import SocketServer
 from itertools import izip
 
-
 import jubatus
 from jubatus.common import Datum
 

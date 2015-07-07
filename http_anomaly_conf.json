@@ -1,0 +1,32 @@
+
+{
+    "converter" : {
+        "string_types" : {
+            "bigram": {
+                "method": "ngram",
+                "function": "create",
+                "char_num": "2"
+            }
+        },
+        "string_rules" : [
+            {
+                "key" : "*",
+                "type" : "bigram",
+                "sample_weight" : "log_tf",
+                "global_weight" : "idf"
+            }
+        ],
+        "num_rules" : [
+            { "key" : "*", "type" : "num" }
+        ]
+    },
+    "parameter" : {
+        "nearest_neighbor_num" : 3,
+        "reverse_nearest_neighbor_num" : 3,
+        "method" : "euclid_lsh",
+        "parameter" : {
+            "hash_num" : 512
+        }
+    },
+    "method" : "light_lof"
+}

@@ -1,17 +1,29 @@
 
 {
     "converter" : {
+        "string_types": {
+            "bigram":  { "method": "ngram", "char_num": "2" }
+        },
         "string_rules" : [
             {
-                "key" : "*",
+                "key" : "path",
+                "type" : "bigram",
+                "sample_weight" : "bin",
+                "global_weight" : "bin"
+            },
+            {
+                "key" : "method",
                 "type" : "str",
+                "sample_weight" : "bin",
+                "global_weight" : "bin"
+            },
+            {
+                "key" : "referer",
+                "type" : "bigram",
                 "sample_weight" : "bin",
                 "global_weight" : "bin"
             }
         ],
-        "num_rules" : [
-            { "key" : "*", "type" : "num" }
-        ]
     },
     "parameter" : {
         "nearest_neighbor_num" : 3,
